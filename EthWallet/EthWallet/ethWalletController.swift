@@ -17,7 +17,6 @@ class EthWalletController{
         
         guard let url = baseURL else {
             fatalError("URL is nil") }
-        //MARK: - Do I have to even do this with this api?
         
         let urlParameters = [
             "module" : "account",
@@ -37,7 +36,6 @@ class EthWalletController{
             let responseDataString = String(data: data, encoding: .utf8) ?? ""
             
             guard error == nil else { print("Error: \(String(describing: error?.localizedDescription))"); return }
-            //            guard !responseDataString.contains("error") else { print("Error resonse: \(responseDataString)"); return }
             
             guard let jsonDictionary = (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)) as? [String: Any] else { completion([]); return }
             
@@ -49,9 +47,4 @@ class EthWalletController{
             completion(wallets)
         }
     }
-    
-    
-    
-    
-    
 }

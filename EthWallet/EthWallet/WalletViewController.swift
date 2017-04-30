@@ -26,12 +26,14 @@ class WalletViewController: UIViewController {
   
         func wei(balance: String) {
             var newBalance = balance
-            let newBalanceChanged = newBalance.remove(at: balance.index(before: balance.endIndex))
+            _ = newBalance.remove(at: balance.index(before: balance.endIndex))
             guard let bradley:Int64 = Int64(newBalance) else { return }
             let value:Int64 = 100000000000000000
             
             let newBrad = Float(bradley)/Float(value)
-            amountLabel.text = String(newBrad)
+            DispatchQueue.main.async {
+                self.amountLabel.text = String(newBrad)
+            }
             print(newBrad)
     }
     
@@ -43,15 +45,10 @@ class WalletViewController: UIViewController {
             EthWalletController.fetchResponses(walletAdress: self.enterWalletAddress.text!) { (wallet) in
                 let newWallet = wallet[0]
                 self.balance += newWallet.balance
-//                self.amountLabel.text = self.balance
                 self.wei(balance: self.balance)
             }
         }
     }
     
     var balance = ""
-    
-  
-    
-    
 }
