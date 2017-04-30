@@ -11,26 +11,24 @@ import Foundation
 class WalletController {
     
     //MARK: - baseURL
-    
-    static let baseURL = URL(string: "https://api.etherscan.io/api")
-    
-    //MARK: - Fetch Method
-    
-    static func fetchResponses(completion: @escaping (_ responses: [Wallet]) -> Void) {
-        
-        guard let url = baseURL else {
-            fatalError("URL is nil") }
-        //MARK: - Do I have to even do this with this api?
-        
-        let urlParameters = [
-            "module" : "account",
-            "action": "balance",
-            "address": "0dc6337fb811eb32473060ca620f010e996ec71c",
-            "tag":"latest",
-            "apikey":"DCKQBK1DZJ5NNV25KDWJSSQHTARUDXBY2J"
-        ]
+
+        static let baseURL = URL(string: "https://api.etherscan.io/api")
         
         
+        static func fetchResponses(walletAdress: String, completion: @escaping (_ responses: [EthWallet]) -> Void) {
+            
+            guard let url = baseURL else {
+                fatalError("URL is nil") }
+            //MARK: - Do I have to even do this with this api?
+            
+            let urlParameters = [
+                "module" : "account",
+                "action": "balance",
+                "address": "\(walletAdress)",
+                "tag":"latest",
+                "apikey":"DCKQBK1DZJ5NNV25KDWJSSQHTARUDXBY2J"
+            ]
+
         
         //MARK: - Network controller isn't working?!?
         

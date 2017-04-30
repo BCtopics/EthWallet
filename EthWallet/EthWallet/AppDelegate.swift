@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  EthWallet
 //
-//  Created by Bradley GIlmore on 4/27/17.
-//  Copyright © 2017 Bradley Gilmore. All rights reserved.
+//  Created by ALIA M NEELY on 4/27/17.
+//  Copyright © 2017 Wylan. All rights reserved.
 //
 
 import UIKit
