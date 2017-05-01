@@ -27,10 +27,4 @@ class EthWallet{
         self.init(ethBalance: ethBalance!)
     }
     
-//    convenience init?(newWalletDictionary: [String: Any]) {
-//        guard let ethUSDAmount = newWalletDictionary["ethusd"] as? String else {return}
-//        self.init(ethUSDAmount: ethUSDAmount!)
-//    }
-    
-    
 }

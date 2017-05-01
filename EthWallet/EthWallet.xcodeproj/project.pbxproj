@@ -13,8 +13,8 @@
 		B2C8BDA91EB2C586003DD733 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2C8BDA81EB2C586003DD733 /* Assets.xcassets */; };
 		B2C8BDAC1EB2C586003DD733 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2C8BDAA1EB2C586003DD733 /* LaunchScreen.storyboard */; };
 		B2C8BDB51EB2CC95003DD733 /* EthWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C8BDB41EB2CC95003DD733 /* EthWallet.swift */; };
-		B2C8BDB81EB2EA33003DD733 /* ethWalletController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C8BDB71EB2EA33003DD733 /* ethWalletController.swift */; };
-		B2C8BDBB1EB2EAC4003DD733 /* Net.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C8BDBA1EB2EAC4003DD733 /* Net.swift */; };
+		B2C8BDB81EB2EA33003DD733 /* EthWalletController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C8BDB71EB2EA33003DD733 /* EthWalletController.swift */; };
+		B2C8BDBB1EB2EAC4003DD733 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C8BDBA1EB2EAC4003DD733 /* NetworkController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,8 +26,8 @@
 		B2C8BDAB1EB2C586003DD733 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B2C8BDAD1EB2C586003DD733 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B2C8BDB41EB2CC95003DD733 /* EthWallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EthWallet.swift; sourceTree = "<group>"; };
-		B2C8BDB71EB2EA33003DD733 /* ethWalletController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ethWalletController.swift; sourceTree = "<group>"; };
-		B2C8BDBA1EB2EAC4003DD733 /* Net.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Net.swift; sourceTree = "<group>"; };
+		B2C8BDB71EB2EA33003DD733 /* EthWalletController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EthWalletController.swift; sourceTree = "<group>"; };
+		B2C8BDBA1EB2EAC4003DD733 /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +41,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6BB2644A1EB6B96E001D10A6 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				B2C8BDBA1EB2EAC4003DD733 /* NetworkController.swift */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
 		B29429991EB2F45900B41D27 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -68,7 +76,7 @@
 		B2C8BDA01EB2C586003DD733 /* EthWallet */ = {
 			isa = PBXGroup;
 			children = (
-				B2C8BDA51EB2C586003DD733 /* Main.storyboard */,
+				6BB2644A1EB6B96E001D10A6 /* Networking */,
 				B29429991EB2F45900B41D27 /* ViewControllers */,
 				B2C8BDB61EB2EA22003DD733 /* ModelControllers */,
 				B2C8BDB31EB2CC74003DD733 /* Models */,
@@ -88,7 +96,7 @@
 		B2C8BDB61EB2EA22003DD733 /* ModelControllers */ = {
 			isa = PBXGroup;
 			children = (
-				B2C8BDB71EB2EA33003DD733 /* ethWalletController.swift */,
+				B2C8BDB71EB2EA33003DD733 /* EthWalletController.swift */,
 			);
 			name = ModelControllers;
 			sourceTree = "<group>";
@@ -96,11 +104,11 @@
 		B2C8BDB91EB2EAB4003DD733 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B2C8BDA51EB2C586003DD733 /* Main.storyboard */,
 				B2C8BDA11EB2C586003DD733 /* AppDelegate.swift */,
 				B2C8BDA81EB2C586003DD733 /* Assets.xcassets */,
 				B2C8BDAA1EB2C586003DD733 /* LaunchScreen.storyboard */,
 				B2C8BDAD1EB2C586003DD733 /* Info.plist */,
-				B2C8BDBA1EB2EAC4003DD733 /* Net.swift */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -178,10 +186,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2C8BDB81EB2EA33003DD733 /* ethWalletController.swift in Sources */,
+				B2C8BDB81EB2EA33003DD733 /* EthWalletController.swift in Sources */,
 				B2C8BDB51EB2CC95003DD733 /* EthWallet.swift in Sources */,
 				B2C8BDA21EB2C586003DD733 /* AppDelegate.swift in Sources */,
-				B2C8BDBB1EB2EAC4003DD733 /* Net.swift in Sources */,
+				B2C8BDBB1EB2EAC4003DD733 /* NetworkController.swift in Sources */,
 				B294299B1EB2F4A100B41D27 /* WalletViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
