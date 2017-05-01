@@ -19,7 +19,6 @@ class EthWallet{
     
     init(ethUSDAmount: String){
         self.ethUSDAAmount = ethUSDAmount
-//        self.ethUSDAmount = ethBalance
     }
     
     convenience init?(jsonDicForWeiAmount: [String:String]) {

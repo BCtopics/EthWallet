@@ -2,23 +2,23 @@
 //  WalletViewController.swift
 //  EthWallet
 //
-//  Created by ALIA M NEELY on 4/27/17.
-//  Copyright © 2017 Wylan. All rights reserved.
+//  Created by Bradley Gilmore on 4/27/17.
+//  Copyright © 2017 Bradley Gilmore. All rights reserved.
 //
 
 import UIKit
 
 class WalletViewController: UIViewController {
     
-    @IBOutlet weak var enterWalletAddress: UITextField!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         DispatchQueue.main.async {
             EthWalletController.fetchUSDollarAmount(completion: { (wallet) in
                 let usd = wallet[0]
                 DispatchQueue.main.async {
-                    self.USDollarAmount.text = usd.ethUSDAAmount
+                    var ethDollarAmount = "Ether is currently at: $\(usd.ethUSDAAmount)"
+                    self.USDollarAmount.text = ethDollarAmount
                 }
             })
         }
@@ -32,6 +32,8 @@ class WalletViewController: UIViewController {
     }
     
   
+    //MARK: - weiToEther Calculation
+    
         func weiToEther(balance: String) {
             var newBalance = balance
             _ = newBalance.remove(at: balance.index(before: balance.endIndex))
@@ -40,14 +42,25 @@ class WalletViewController: UIViewController {
             
             let newBrad = Float(bradley)/Float(value)
             DispatchQueue.main.async {
-                self.amountLabel.text = String(newBrad)
+                let wei = "You currently have \(String(newBrad)) Ether"
+                self.amountLabel.text = wei
             }
             print(newBrad)
     }
     
+    //MARK: - Properties
+    
+    var balance = ""
+    
+    
     //MARK: - IBOutlets
+    
+    @IBOutlet weak var enterWalletAddress: UITextField!
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var USDollarAmount: UILabel!
+    
+    
+    //MARK: - IBActions
     
     @IBAction func showButtonTapped(_ sender: Any) {
         DispatchQueue.main.async {
@@ -58,6 +71,4 @@ class WalletViewController: UIViewController {
             }
         }
     }
-    
-    var balance = ""
 }

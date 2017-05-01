@@ -10,8 +10,6 @@ import Foundation
 import UIKit
 class NetworkController {
     
-    //Declare Method Keys
-    
     enum HTTPMethod: String {
         
         case get = "GET"
@@ -32,11 +30,11 @@ class NetworkController {
                                body: Data? = nil,
                                completion: ((Data?, Error?) -> Void)? = nil) {
         
-        //get the url that the request will perform on, add parameters later
+        // get the url that the request will perform on, add parameters later
         let requestURL = self.url(byAdding: urlParameters, to: url)
         
         
-        //create a request that acts upon the given URL using the function below
+        // create a request that acts upon the given URL using the function below
         var request = URLRequest(url: requestURL)
         //// set the raw values from the enum HTTPMethod declared above
         request.httpMethod = httpMethod.rawValue
@@ -61,7 +59,7 @@ class NetworkController {
         // convert the parameters to URLQueryItems.
         componets?.queryItems = parameters?.flatMap{ URLQueryItem(name: $0.key, value: $0.value) }
         
-        //Unwrap URL based off of components
+        // Unwrap URL based off of components
         guard let url = componets?.url else { fatalError("URL Optional is nil") }
         
         

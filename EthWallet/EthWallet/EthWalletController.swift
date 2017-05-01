@@ -2,8 +2,8 @@
 //  ethWalletController.swift
 //  EthWallet
 //
-//  Created by ALIA M NEELY on 4/27/17.
-//  Copyright © 2017 Wylan. All rights reserved.
+//  Created by Bradley Gilmore on 4/27/17.
+//  Copyright © 2017 Bradley Gilmore. All rights reserved.
 //
 
 import Foundation
@@ -14,6 +14,7 @@ class EthWalletController{
     
     
     //MARK: - FetchWei Function
+    
     static func fetchWei(walletAdress: String, completion: @escaping (_ responses: [EthWallet]) -> Void) {
         
         guard let url = baseURL else {
@@ -48,6 +49,7 @@ class EthWalletController{
     }
     
     //MARK: - FetchUSDDollarAmount Function
+    
     static func fetchUSDollarAmount(completion: @escaping (_ responses: [EthWallet]) -> Void) {
         
         guard let usdURL = baseURL else { fatalError("USD/URL is nil") }
@@ -70,15 +72,10 @@ class EthWalletController{
             guard let jsonDictionary = (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)) as? [String: Any] else { completion([]); return }
             
             
-//            guard let walletDictionary = jsonDictionary["result"] as? [String : Any] else { return }
-//            guard let newWalletDictionary = walletDictionary["ethusd"] as? String else { return }
             guard let walletDictionary = jsonDictionary["result"] as? [String: Any] else { return }
             guard let newWalletDictionary = walletDictionary["ethusd"] as? String else { return }
             let usdWallet = EthWallet(ethUSDAmount: newWalletDictionary)
-            
-
-           // let usdWallet = walletDictionary.flatMap{ EthWallet(ethUSDAmount: $0)}
-            
+            print(usdWallet.ethUSDAAmount)
             
             wallets.append(usdWallet)
             completion(wallets)
