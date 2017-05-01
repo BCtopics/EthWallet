@@ -14,6 +14,14 @@ class WalletViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        DispatchQueue.main.async {
+            EthWalletController.fetchUSDollarAmount(completion: { (wallet) in
+                let usd = wallet[0]
+                DispatchQueue.main.async {
+                    self.USDollarAmount.text = usd.ethUSDAAmount
+                }
+            })
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -24,7 +32,7 @@ class WalletViewController: UIViewController {
     }
     
   
-        func wei(balance: String) {
+        func weiToEther(balance: String) {
             var newBalance = balance
             _ = newBalance.remove(at: balance.index(before: balance.endIndex))
             guard let bradley:Int64 = Int64(newBalance) else { return }
@@ -37,15 +45,16 @@ class WalletViewController: UIViewController {
             print(newBrad)
     }
     
-    
+    //MARK: - IBOutlets
     @IBOutlet weak var amountLabel: UILabel!
+    @IBOutlet weak var USDollarAmount: UILabel!
     
     @IBAction func showButtonTapped(_ sender: Any) {
         DispatchQueue.main.async {
-            EthWalletController.fetchResponses(walletAdress: self.enterWalletAddress.text!) { (wallet) in
+            EthWalletController.fetchWei(walletAdress: self.enterWalletAddress.text!) { (wallet) in
                 let newWallet = wallet[0]
-                self.balance += newWallet.balance
-                self.wei(balance: self.balance)
+                self.balance += newWallet.ethBalance
+                self.weiToEther(balance: self.balance)
             }
         }
     }

@@ -10,16 +10,27 @@ import Foundation
 
 class EthWallet{
     
-    let balance: String
+    var ethBalance: String = ""
+    var ethUSDAAmount: String = ""
     
-    init(balance: String){
-        self.balance = balance
+    init(ethBalance: String){
+        self.ethBalance = ethBalance
     }
     
-    convenience init?(jsonDic: [String:String]) {
-        let balance = jsonDic["result"]
-        self.init(balance: balance!)
+    init(ethUSDAmount: String){
+        self.ethUSDAAmount = ethUSDAmount
+//        self.ethUSDAmount = ethBalance
     }
+    
+    convenience init?(jsonDicForWeiAmount: [String:String]) {
+        let ethBalance = jsonDicForWeiAmount["result"]
+        self.init(ethBalance: ethBalance!)
+    }
+    
+//    convenience init?(newWalletDictionary: [String: Any]) {
+//        guard let ethUSDAmount = newWalletDictionary["ethusd"] as? String else {return}
+//        self.init(ethUSDAmount: ethUSDAmount!)
+//    }
     
     
 }
