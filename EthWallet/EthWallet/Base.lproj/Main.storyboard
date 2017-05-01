@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="y4s-g2-F0n">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Wallet View Controller-->
+        <scene sceneID="2gr-8e-fxg">
+            <objects>
+                <viewController id="y4s-g2-F0n" customClass="WalletViewController" customModule="EthWallet" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0ip-TF-DfB"/>
+                        <viewControllerLayoutGuide type="bottom" id="EJR-Qu-UR1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Nfh-cm-2H6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter private key (unsecured)" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AgT-vy-yUy">
+                                <rect key="frame" x="16" y="95" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="JCa-Y3-ehL">
+                                <rect key="frame" x="16" y="232" width="343" height="51"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="US Dollar Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ex3-ik-OT0">
+                                        <rect key="frame" x="99" y="0.0" width="145" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3gt-L6-PxX">
+                                        <rect key="frame" x="154.5" y="30.5" width="34.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rO7-0G-QiS">
+                                <rect key="frame" x="16" y="153" width="343" height="51"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eth Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zsh-iq-AUT">
+                                        <rect key="frame" x="123.5" y="0.0" width="96.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3nw-Kd-biv">
+                                        <rect key="frame" x="154.5" y="30.5" width="34.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ww6-Ep-goP">
+                                <rect key="frame" x="16" y="617" width="343" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Qj5-Xk-gb5"/>
+                                </constraints>
+                                <state key="normal" title="Show"/>
+                                <connections>
+                                    <action selector="showButtonTapped:" destination="y4s-g2-F0n" eventType="touchUpInside" id="NC4-At-cc7"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ww6-Ep-goP" firstAttribute="leading" secondItem="Nfh-cm-2H6" secondAttribute="leadingMargin" id="3LC-Ux-aNE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JCa-Y3-ehL" secondAttribute="trailing" id="5ah-x0-ziI"/>
+                            <constraint firstItem="AgT-vy-yUy" firstAttribute="leading" secondItem="Nfh-cm-2H6" secondAttribute="leadingMargin" id="6Ui-pM-kqY"/>
+                            <constraint firstItem="rO7-0G-QiS" firstAttribute="top" secondItem="AgT-vy-yUy" secondAttribute="bottom" constant="28" id="7Cd-BB-Mas"/>
+                            <constraint firstItem="rO7-0G-QiS" firstAttribute="leading" secondItem="Nfh-cm-2H6" secondAttribute="leadingMargin" id="GQW-tk-69g"/>
+                            <constraint firstItem="Ww6-Ep-goP" firstAttribute="trailing" secondItem="Nfh-cm-2H6" secondAttribute="trailingMargin" id="Ldn-3D-oBh"/>
+                            <constraint firstItem="EJR-Qu-UR1" firstAttribute="top" secondItem="Ww6-Ep-goP" secondAttribute="bottom" id="RVm-dR-jIm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rO7-0G-QiS" secondAttribute="trailing" id="epk-R4-WAc"/>
+                            <constraint firstItem="AgT-vy-yUy" firstAttribute="top" secondItem="0ip-TF-DfB" secondAttribute="bottom" constant="75" id="hYJ-7q-LUD"/>
+                            <constraint firstItem="JCa-Y3-ehL" firstAttribute="top" secondItem="rO7-0G-QiS" secondAttribute="bottom" constant="28" id="nUF-bE-ssE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="AgT-vy-yUy" secondAttribute="trailing" id="swn-Lo-sWU"/>
+                            <constraint firstItem="JCa-Y3-ehL" firstAttribute="leading" secondItem="Nfh-cm-2H6" secondAttribute="leadingMargin" id="th9-io-H2f"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="USDollarAmount" destination="3gt-L6-PxX" id="Z7y-pQ-GN9"/>
+                        <outlet property="amountLabel" destination="3nw-Kd-biv" id="NuB-Zx-Hqd"/>
+                        <outlet property="enterWalletAddress" destination="AgT-vy-yUy" id="r8Y-5H-1Dp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uds-f7-1oe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="109" y="195"/>
+        </scene>
+    </scenes>
+</document>
