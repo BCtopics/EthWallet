@@ -8,16 +8,24 @@
 
 import UIKit
 
-class WalletViewController: UIViewController {
+class WalletViewController: UIViewController, UITextFieldDelegate {
     
-
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.enterWalletAddress.delegate = self
         DispatchQueue.main.async {
             EthWalletController.fetchUSDollarAmount(completion: { (wallet) in
-                let usd = wallet[0]
+                let usd = wallet!
+                //Fix force unwrapp.
                 DispatchQueue.main.async {
-                    var ethDollarAmount = "Ether is currently at: $\(usd.ethUSDAAmount)"
+                    let ethDollarAmount = "Ether is currently at: $\(usd.ethUSDAAmount)"
                     self.USDollarAmount.text = ethDollarAmount
                 }
             })
@@ -58,6 +66,7 @@ class WalletViewController: UIViewController {
     @IBOutlet weak var enterWalletAddress: UITextField!
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var USDollarAmount: UILabel!
+    @IBOutlet weak var yourUSDTotal: UILabel!
     
     
     //MARK: - IBActions
@@ -65,9 +74,17 @@ class WalletViewController: UIViewController {
     @IBAction func showButtonTapped(_ sender: Any) {
         DispatchQueue.main.async {
             EthWalletController.fetchWei(walletAdress: self.enterWalletAddress.text!) { (wallet) in
-                let newWallet = wallet[0]
+                let newWallet = wallet!
+                //Fix force unwrap.
                 self.balance += newWallet.ethBalance
                 self.weiToEther(balance: self.balance)
+                
+                guard let usdText = self.USDollarAmount.text, let usdValue = Float(usdText) else {return}
+                let newAmount = usdValue * Float(self.balance)!
+                //^^ Fix bang operator.
+//                let newnewAmount = Float(newAmount * 1000)
+                self.yourUSDTotal.text = "\(newAmount)"
+                //^^ Doesn't change..
             }
         }
     }

@@ -15,7 +15,7 @@ class EthWalletController{
     
     //MARK: - FetchWei Function
     
-    static func fetchWei(walletAdress: String, completion: @escaping (_ responses: [EthWallet]) -> Void) {
+    static func fetchWei(walletAdress: String, completion: @escaping (_ responses: EthWallet?) -> Void) {
         
         guard let url = baseURL else {
             fatalError("WEI/URL is nil") }
@@ -29,7 +29,6 @@ class EthWalletController{
         ]
         
         NetworkController.performRequest(for: url, httpMethod: .get, urlParameters: urlParameters) { (data, error) in
-            var wallets: [EthWallet] = []
             
             guard let data = data else { return }
             
@@ -37,20 +36,20 @@ class EthWalletController{
             
             guard error == nil else { print("Error: \(String(describing: error?.localizedDescription))"); return }
             
-            guard let jsonDictionary = (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)) as? [String: Any] else { completion([]); return }
+            guard let jsonDictionary = (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)) as? [String: Any] else { completion(nil); return }
             
             
             guard let walletDictionary = jsonDictionary["result"] as? String else { return }
             
             let newWallet = EthWallet(ethBalance: walletDictionary)
-            wallets.append(newWallet)
-            completion(wallets)
+            
+            completion(newWallet)
         }
     }
     
     //MARK: - FetchUSDDollarAmount Function
     
-    static func fetchUSDollarAmount(completion: @escaping (_ responses: [EthWallet]) -> Void) {
+    static func fetchUSDollarAmount(completion: @escaping (_ responses: EthWallet?) -> Void) {
         
         guard let usdURL = baseURL else { fatalError("USD/URL is nil") }
         
@@ -62,14 +61,13 @@ class EthWalletController{
         
         
         NetworkController.performRequest(for: usdURL, httpMethod: .get, urlParameters: urlParameters, body: nil) { (data, error) in
-            var wallets: [EthWallet] = []
             
             guard let data = data else { return }
             let responseDataString = String(data: data, encoding: .utf8) ?? ""
             
             guard error == nil else { print("Error: \(String(describing: error?.localizedDescription))"); return }
             
-            guard let jsonDictionary = (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)) as? [String: Any] else { completion([]); return }
+            guard let jsonDictionary = (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)) as? [String: Any] else { completion(nil); return }
             
             
             guard let walletDictionary = jsonDictionary["result"] as? [String: Any] else { return }
@@ -77,8 +75,8 @@ class EthWalletController{
             let usdWallet = EthWallet(ethUSDAmount: newWalletDictionary)
             print(usdWallet.ethUSDAAmount)
             
-            wallets.append(usdWallet)
-            completion(wallets)
+            
+            completion(usdWallet)
             
         }
     }

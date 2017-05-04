@@ -72,6 +72,13 @@
                                     <action selector="showButtonTapped:" destination="y4s-g2-F0n" eventType="touchUpInside" id="NC4-At-cc7"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="USD/Eth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7M-wp-6cC">
+                                <rect key="frame" x="155" y="340" width="65" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -93,6 +100,7 @@
                         <outlet property="USDollarAmount" destination="3gt-L6-PxX" id="Z7y-pQ-GN9"/>
                         <outlet property="amountLabel" destination="3nw-Kd-biv" id="NuB-Zx-Hqd"/>
                         <outlet property="enterWalletAddress" destination="AgT-vy-yUy" id="r8Y-5H-1Dp"/>
+                        <outlet property="yourUSDTotal" destination="Y7M-wp-6cC" id="X4i-Om-Ke1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uds-f7-1oe" userLabel="First Responder" sceneMemberID="firstResponder"/>
