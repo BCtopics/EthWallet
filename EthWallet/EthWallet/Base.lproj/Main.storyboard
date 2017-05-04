@@ -72,9 +72,8 @@
                                     <action selector="showButtonTapped:" destination="y4s-g2-F0n" eventType="touchUpInside" id="NC4-At-cc7"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="USD/Eth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7M-wp-6cC">
-                                <rect key="frame" x="155" y="340" width="65" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD/Eth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7M-wp-6cC">
+                                <rect key="frame" x="16" y="340" width="343" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -88,10 +87,13 @@
                             <constraint firstItem="rO7-0G-QiS" firstAttribute="top" secondItem="AgT-vy-yUy" secondAttribute="bottom" constant="28" id="7Cd-BB-Mas"/>
                             <constraint firstItem="rO7-0G-QiS" firstAttribute="leading" secondItem="Nfh-cm-2H6" secondAttribute="leadingMargin" id="GQW-tk-69g"/>
                             <constraint firstItem="Ww6-Ep-goP" firstAttribute="trailing" secondItem="Nfh-cm-2H6" secondAttribute="trailingMargin" id="Ldn-3D-oBh"/>
+                            <constraint firstItem="Y7M-wp-6cC" firstAttribute="top" secondItem="JCa-Y3-ehL" secondAttribute="bottom" constant="57" id="QEN-mX-I4J"/>
                             <constraint firstItem="EJR-Qu-UR1" firstAttribute="top" secondItem="Ww6-Ep-goP" secondAttribute="bottom" id="RVm-dR-jIm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Y7M-wp-6cC" secondAttribute="trailing" id="cJz-Na-EeO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rO7-0G-QiS" secondAttribute="trailing" id="epk-R4-WAc"/>
                             <constraint firstItem="AgT-vy-yUy" firstAttribute="top" secondItem="0ip-TF-DfB" secondAttribute="bottom" constant="75" id="hYJ-7q-LUD"/>
                             <constraint firstItem="JCa-Y3-ehL" firstAttribute="top" secondItem="rO7-0G-QiS" secondAttribute="bottom" constant="28" id="nUF-bE-ssE"/>
+                            <constraint firstItem="Y7M-wp-6cC" firstAttribute="leading" secondItem="Nfh-cm-2H6" secondAttribute="leadingMargin" id="rI7-N6-cUL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="AgT-vy-yUy" secondAttribute="trailing" id="swn-Lo-sWU"/>
                             <constraint firstItem="JCa-Y3-ehL" firstAttribute="leading" secondItem="Nfh-cm-2H6" secondAttribute="leadingMargin" id="th9-io-H2f"/>
                         </constraints>

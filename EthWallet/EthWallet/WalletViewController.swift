@@ -27,6 +27,7 @@ class WalletViewController: UIViewController, UITextFieldDelegate {
                 DispatchQueue.main.async {
                     let ethDollarAmount = "Ether is currently at: $\(usd.ethUSDAAmount)"
                     self.USDollarAmount.text = ethDollarAmount
+                    self.tempStore = "\(usd.ethUSDAAmount)"
                 }
             })
         }
@@ -59,7 +60,7 @@ class WalletViewController: UIViewController, UITextFieldDelegate {
     //MARK: - Properties
     
     var balance = ""
-    
+    var tempStore = ""
     
     //MARK: - IBOutlets
     
@@ -79,7 +80,8 @@ class WalletViewController: UIViewController, UITextFieldDelegate {
                 self.balance += newWallet.ethBalance
                 self.weiToEther(balance: self.balance)
                 
-                guard let usdText = self.USDollarAmount.text, let usdValue = Float(usdText) else {return}
+                let usdText = self.tempStore
+                guard let usdValue = Float(usdText)?.rounded() else { return }
                 let newAmount = usdValue * Float(self.balance)!
                 //^^ Fix bang operator.
 //                let newnewAmount = Float(newAmount * 1000)
