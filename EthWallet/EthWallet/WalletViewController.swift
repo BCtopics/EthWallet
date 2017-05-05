@@ -53,6 +53,8 @@ class WalletViewController: UIViewController, UITextFieldDelegate {
             DispatchQueue.main.async {
                 let wei = "You currently have \(String(newBrad)) Ether"
                 self.amountLabel.text = wei
+                // Made change below
+                self.balance = String(newBrad)
             }
             print(newBrad)
     }
@@ -85,7 +87,7 @@ class WalletViewController: UIViewController, UITextFieldDelegate {
                 let newAmount = usdValue * Float(self.balance)!
                 //^^ Fix bang operator.
 //                let newnewAmount = Float(newAmount * 1000)
-                self.yourUSDTotal.text = "\(newAmount)"
+                self.yourUSDTotal.text = "Your Eth Balance is currently worth $\(newAmount)"
                 //^^ Doesn't change..
             }
         }
