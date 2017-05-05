@@ -8,11 +8,18 @@
 
 import UIKit
 
-class WalletViewController: UIViewController, UITextFieldDelegate {
+class WalletViewController: UIViewController, UITextFieldDelegate, UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.refresh()
+    }
+    //Change the textField to be a searchbar later.
+    
     
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
+        self.refresh()
         return false
     }
     
@@ -53,8 +60,9 @@ class WalletViewController: UIViewController, UITextFieldDelegate {
             DispatchQueue.main.async {
                 let wei = "You currently have \(String(newBrad)) Ether"
                 self.amountLabel.text = wei
-                // Made change below
+                
                 self.balance = String(newBrad)
+                // Made change above^^
             }
             print(newBrad)
     }
@@ -75,6 +83,13 @@ class WalletViewController: UIViewController, UITextFieldDelegate {
     //MARK: - IBActions
     
     @IBAction func showButtonTapped(_ sender: Any) {
+        self.refresh()
+    }
+    
+    
+    //Search/Show Function
+    
+    func refresh(){
         DispatchQueue.main.async {
             EthWalletController.fetchWei(walletAdress: self.enterWalletAddress.text!) { (wallet) in
                 let newWallet = wallet!
@@ -86,9 +101,7 @@ class WalletViewController: UIViewController, UITextFieldDelegate {
                 guard let usdValue = Float(usdText)?.rounded() else { return }
                 let newAmount = usdValue * Float(self.balance)!
                 //^^ Fix bang operator.
-//                let newnewAmount = Float(newAmount * 1000)
                 self.yourUSDTotal.text = "Your Eth Balance is currently worth $\(newAmount)"
-                //^^ Doesn't change..
             }
         }
     }
