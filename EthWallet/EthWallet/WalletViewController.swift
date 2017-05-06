@@ -29,8 +29,7 @@ class WalletViewController: UIViewController, UITextFieldDelegate, UISearchBarDe
         self.enterWalletAddress.delegate = self
         DispatchQueue.main.async {
             EthWalletController.fetchUSDollarAmount(completion: { (wallet) in
-                let usd = wallet!
-                //Fix force unwrapp.
+                guard let usd = wallet else { NSLog("wallet in fetchUSDDollarAmount was nil"); return }
                 DispatchQueue.main.async {
                     let ethDollarAmount = "Ether is currently at: $\(usd.ethUSDAAmount)"
                     self.USDollarAmount.text = ethDollarAmount
@@ -62,7 +61,6 @@ class WalletViewController: UIViewController, UITextFieldDelegate, UISearchBarDe
                 self.amountLabel.text = wei
                 
                 self.balance = String(newBrad)
-                // Made change above^^
             }
             print(newBrad)
     }
@@ -92,15 +90,14 @@ class WalletViewController: UIViewController, UITextFieldDelegate, UISearchBarDe
     func refresh(){
         DispatchQueue.main.async {
             EthWalletController.fetchWei(walletAdress: self.enterWalletAddress.text!) { (wallet) in
-                let newWallet = wallet!
-                //Fix force unwrap.
+                guard let newWallet = wallet else { NSLog("Wallet in refresh function was nil") ;return }
                 self.balance += newWallet.ethBalance
                 self.weiToEther(balance: self.balance)
                 
                 let usdText = self.tempStore
                 guard let usdValue = Float(usdText)?.rounded() else { return }
-                let newAmount = usdValue * Float(self.balance)!
-                //^^ Fix bang operator.
+                guard let balance = Float(self.balance) else { NSLog("balance in refresh function is nil"); return }
+                let newAmount = usdValue * balance
                 self.yourUSDTotal.text = "Your Eth Balance is currently worth $\(newAmount)"
             }
         }
