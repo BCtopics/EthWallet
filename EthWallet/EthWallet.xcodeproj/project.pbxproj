@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B1985991EC00C6B0096C1BA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1985981EC00C6B0096C1BA /* SettingsViewController.swift */; };
 		B294299B1EB2F4A100B41D27 /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B294299A1EB2F4A100B41D27 /* WalletViewController.swift */; };
 		B2C8BDA21EB2C586003DD733 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C8BDA11EB2C586003DD733 /* AppDelegate.swift */; };
 		B2C8BDA71EB2C586003DD733 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2C8BDA51EB2C586003DD733 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6B1985981EC00C6B0096C1BA /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B294299A1EB2F4A100B41D27 /* WalletViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
 		B2C8BD9E1EB2C586003DD733 /* EthWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EthWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2C8BDA11EB2C586003DD733 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +55,8 @@
 			isa = PBXGroup;
 			children = (
 				B294299A1EB2F4A100B41D27 /* WalletViewController.swift */,
+				B2C8BDA51EB2C586003DD733 /* Main.storyboard */,
+				6B1985981EC00C6B0096C1BA /* SettingsViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -104,7 +108,6 @@
 		B2C8BDB91EB2EAB4003DD733 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B2C8BDA51EB2C586003DD733 /* Main.storyboard */,
 				B2C8BDA11EB2C586003DD733 /* AppDelegate.swift */,
 				B2C8BDA81EB2C586003DD733 /* Assets.xcassets */,
 				B2C8BDAA1EB2C586003DD733 /* LaunchScreen.storyboard */,
@@ -191,6 +194,7 @@
 				B2C8BDA21EB2C586003DD733 /* AppDelegate.swift in Sources */,
 				B2C8BDBB1EB2EAC4003DD733 /* NetworkController.swift in Sources */,
 				B294299B1EB2F4A100B41D27 /* WalletViewController.swift in Sources */,
+				6B1985991EC00C6B0096C1BA /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

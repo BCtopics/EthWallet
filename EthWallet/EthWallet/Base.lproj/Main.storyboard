@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="y4s-g2-F0n">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="rqD-25-9qS">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Wallet View Controller-->
+        <!--Ethereum-->
         <scene sceneID="2gr-8e-fxg">
             <objects>
                 <viewController id="y4s-g2-F0n" customClass="WalletViewController" customModule="EthWallet" customModuleProvider="target" sceneMemberID="viewController">
@@ -23,13 +23,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Ethereum Address" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AgT-vy-yUy">
-                                <rect key="frame" x="16" y="95" width="343" height="30"/>
+                                <rect key="frame" x="16" y="139" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="JCa-Y3-ehL">
-                                <rect key="frame" x="16" y="232" width="343" height="51"/>
+                                <rect key="frame" x="16" y="276" width="343" height="51"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD/ETH Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ex3-ik-OT0">
                                         <rect key="frame" x="99.5" y="0.0" width="144.5" height="20.5"/>
@@ -46,7 +46,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rO7-0G-QiS">
-                                <rect key="frame" x="16" y="153" width="343" height="51"/>
+                                <rect key="frame" x="16" y="197" width="343" height="51"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eth Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zsh-iq-AUT">
                                         <rect key="frame" x="123.5" y="0.0" width="96.5" height="20.5"/>
@@ -73,7 +73,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="09y-1z-MFV">
-                                <rect key="frame" x="16" y="311" width="343" height="51"/>
+                                <rect key="frame" x="16" y="355" width="343" height="51"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Balance/USD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SFN-df-APq">
                                         <rect key="frame" x="118" y="0.0" width="107.5" height="20.5"/>
@@ -109,6 +109,13 @@
                             <constraint firstItem="JCa-Y3-ehL" firstAttribute="leading" secondItem="Nfh-cm-2H6" secondAttribute="leadingMargin" id="th9-io-H2f"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Ethereum" id="QSr-zI-QMc">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="rEX-rr-dow">
+                            <connections>
+                                <segue destination="LRj-cS-t0L" kind="show" id="tTV-rk-DXe"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="USDollarAmount" destination="3gt-L6-PxX" id="Z7y-pQ-GN9"/>
                         <outlet property="amountLabel" destination="3nw-Kd-biv" id="NuB-Zx-Hqd"/>
@@ -118,7 +125,43 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uds-f7-1oe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="108" y="194.75262368815595"/>
+            <point key="canvasLocation" x="1047.2" y="194.75262368815595"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="avw-di-r7U">
+            <objects>
+                <viewController id="LRj-cS-t0L" customClass="SettingsViewController" customModule="EthWallet" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="66v-b8-aY2"/>
+                        <viewControllerLayoutGuide type="bottom" id="FcL-mg-g4v"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cPh-qT-mwl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3pl-BO-6E8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1807" y="195"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="zaf-Ev-hGa">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rqD-25-9qS" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oy9-eW-zNf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="y4s-g2-F0n" kind="relationship" relationship="rootViewController" id="8fm-OQ-e1G"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OLW-WY-xMN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="319" y="188"/>
         </scene>
     </scenes>
 </document>
