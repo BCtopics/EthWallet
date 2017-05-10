@@ -84,7 +84,6 @@ class WalletViewController: UIViewController, UITextFieldDelegate, UISearchBarDe
         self.refresh()
     }
     
-    
     //Search/Show Function
     
     func refresh(){
